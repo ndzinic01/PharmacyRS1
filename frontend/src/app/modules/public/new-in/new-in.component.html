@@ -1,0 +1,33 @@
+<div class="newin-products-container">
+  <h2>Najnoviji proizvodi</h2>
+
+  <div class="product-slider-wrapper">
+    <div class="product-slider" [style.transform]="transformValue">
+      <div *ngFor="let product of latestProducts" class="product-card">
+
+        <div class="newin-badge">NEW</div>
+
+        <div class="image-wrapper">
+          <img [src]="product.picture" [alt]="product.name" class="product-image">
+
+          <!-- Ikonice koje se prikazuju na hover -->
+          <div class="hover-icons">
+            <a class="icon-btn" title="Dodaj u korpu"><img src="images/cart1.png" alt=""></a>
+            <a class="icon-btn" title="Dodaj na listu želja"><img src="images/heart.png" alt=""></a>
+          </div>
+        </div>
+
+        <!-- Tekstualni detalji koji se skrivaju na hover -->
+        <div class="product-details">
+          <h3>{{ product.name }}</h3>
+          <div class="product-prices">
+            <p class="new-price">
+              <span>{{ product.price | number: '1.2-2' }} KM</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

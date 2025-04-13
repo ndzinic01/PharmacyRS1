@@ -1,0 +1,79 @@
+<!-- Header sekcija -->
+<header class="header">
+
+
+  <div class="search-bar">
+    <div class="logo">
+      <a routerLink="/public/home" routerLinkActive="active">
+        <img src="images/logo.jpg"/>
+      </a>
+
+    </div>
+
+    <!--<div class="search">
+      <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search" />
+      <div *ngIf="searchResults.length > 0" class="search-results">
+        <ul>
+          <li *ngFor="let product of searchResults">{{ product.name }}</li>
+        </ul>
+
+      </div>
+    </div>-->
+    <div class="search">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        placeholder="Pretraga proizvoda"
+      />
+      <div *ngIf="searchResults.length > 0" class="search-results">
+        <ul>
+          <li *ngFor="let product of searchResults">
+            <!--<a [routerLink]="['/search-results', product.id]">{{ product.name }}</a>-->
+            <a routerLink="/public/search-results" >{{ product.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="header-icons">
+
+      <a routerLink="/public/wish-list" routerLinkActive="active">
+        <img src="images/wishlist.png"  class="icon"> Wish list
+      </a>
+
+      <a routerLink="/auth/login" routerLinkActive="active">
+        <img src="images/login.png"  class="icon"> Log in
+      </a>
+
+      <a href="#">
+        <img src="images/cart.jpg"  class="icon"> Cart
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <!-- Navigacija -->
+  <nav class="navigation">
+    <ul>
+      <li><a routerLink="/public/your-health" routerLinkActive="active">Your health</a></li>
+      <li><a routerLink="/public/beauty-and-care" routerLinkActive="active">Beauty and care</a></li>
+      <li><a routerLink="/public/childcare" routerLinkActive="active">Childcare</a></li>
+      <li><a routerLink="/public/skin-protection" routerLinkActive="active">Skin protection</a></li>
+      <li><a routerLink="/public/devices" routerLinkActive="active">Devices</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<!-- Router-outlet za dinamičko učitavanje komponenti -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+

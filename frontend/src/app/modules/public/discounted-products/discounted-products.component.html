@@ -1,0 +1,43 @@
+<div class="discounted-products-container">
+    <h2>Sniženi proizvodi</h2>
+
+  <button class="arrow-button left-arrow" (click)="previousProduct()">&#10094;</button>
+
+  <div class="product-slider-wrapper">
+    <div class="product-slider" [style.transform]="transformValue">
+      <div *ngFor="let product of discountedProducts" class="product-card">
+
+        <div *ngIf="product.discountedPrice !== undefined && product.discountedPrice < product.price" class="discount-badge">
+          - {{ ((1 - product.discountedPrice / product.price) * 100) | number:'1.0-0' }}%
+        </div>
+
+
+        <div class="image-wrapper">
+          <img [src]="product.picture" [alt]="product.name" class="product-image">
+
+          <!-- Ikonice koje se prikazuju na hover -->
+          <div class="hover-icons">
+            <a class="icon-btn" title="Dodaj u korpu"><img src="images/cart1.png" alt=""></a>
+            <a class="icon-btn" title="Dodaj na listu želja"><img src="images/heart.png" alt=""></a>
+          </div>
+        </div>
+        <div class="product-details">
+          <h3>{{ product.name }}</h3>
+          <div class="product-prices">
+            <p *ngIf="product.discountedPrice !== undefined && product.discountedPrice < product.price" class="old-price">
+              <span>{{ product.price | number: '1.2-2' }} KM</span>
+            </p>
+            <p class="new-price">
+              <span>{{ product.discountedPrice | number: '1.2-2' }} KM</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="arrow-button right-arrow" (click)="nextProduct()">&#10095;</button>
+</div>
+
+
+
